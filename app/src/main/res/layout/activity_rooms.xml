@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:text="@string/rooms"
         android:padding="16dp"
+        android:textColor="@color/colorPrimary"
         android:textAppearance="?android:attr/textAppearanceLarge"/>
 
     <android.support.v7.widget.RecyclerView

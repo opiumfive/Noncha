@@ -9,4 +9,7 @@
     <string name="secret_code">Secret code</string>
     <string name="some_error">Some error occured</string>
     <string name="send">SEND</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">Ok</string>
+    <string name="room_is_private">Room is private</string>
 </resources>

@@ -1,14 +1,17 @@
 package com.opiumfive.noncha.ui;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.TextInputEditText;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -53,11 +56,32 @@ public class RoomsActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         if (room.mPublic) {
-                            Intent intent = new Intent(RoomsActivity.this, ChatActivity.class);
-                            intent.putExtra("room_id", room.mId);
-                            intent.putExtra("room_name", room.mName);
-                            intent.putExtra("room_private", !room.mPublic);
-                            startActivity(intent);
+                            goToChat(room);
+                        } else {
+                            AlertDialog.Builder adb = new AlertDialog.Builder(RoomsActivity.this);
+                            LinearLayout dialog_view = (LinearLayout) getLayoutInflater()
+                                    .inflate(R.layout.dialog_code, null);
+                            adb.setView(dialog_view);
+                            final TextInputEditText codeEditText = (TextInputEditText) dialog_view.findViewById(R.id.code_edit_text);
+
+                            adb.setNegativeButton(R.string.cancel,
+                                    new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int id) {
+                                            dialog.cancel();
+                                        }
+                                    });
+                            adb.setPositiveButton(R.string.ok,
+                                    new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int id) {
+                                            String code = codeEditText.getText().toString();
+                                            if (code.equals(room.mCode)) {
+                                                goToChat(room);
+                                                dialog.cancel();
+                                            }
+                                        }
+                                    });
+                            AlertDialog alert = adb.create();
+                            alert.show();
                         }
                     }
                 });
@@ -101,6 +125,13 @@ public class RoomsActivity extends AppCompatActivity {
         });
     }
 
+    private void goToChat(Room room) {
+        Intent intent = new Intent(RoomsActivity.this, ChatActivity.class);
+        intent.putExtra("room_id", room.mId);
+        intent.putExtra("room_name", room.mName);
+        intent.putExtra("room_private", !room.mPublic);
+        startActivity(intent);
+    }
 
     private static class RoomViewHolder extends RecyclerView.ViewHolder {
 
