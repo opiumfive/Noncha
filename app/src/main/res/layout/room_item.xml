@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:clickable="true"
+        android:background="@drawable/room_round">
+
+        <TextView
+            android:id="@+id/roomNameTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="36dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+        <ImageView
+            android:id="@+id/roomPublicImageView"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="end|center_vertical"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/ic_lock_outline_black_24dp"/>
+
+    </FrameLayout>
+
+</FrameLayout>

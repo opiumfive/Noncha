@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "744671457762",
+    "firebase_url": "https://noncha-1ce33.firebaseio.com",
+    "project_id": "noncha-1ce33",
+    "storage_bucket": "noncha-1ce33.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:744671457762:android:a4ccd0579ff8bb25",
+        "android_client_info": {
+          "package_name": "com.opiumfive.noncha"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "744671457762-ohvf217fnbpe05csje3p02iqss2jurv3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXY7FBUwmNiXhqy0waUNdq_IT6Gh6fa0g"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
