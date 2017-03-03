@@ -4,7 +4,6 @@ package com.opiumfive.noncha.ui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.InputFilter;
@@ -19,7 +18,7 @@ import com.opiumfive.noncha.DatabaseManager;
 import com.opiumfive.noncha.R;
 import com.opiumfive.noncha.model.Message;
 
-public class ChatActivity extends AppCompatActivity {
+public class ChatActivity extends BaseActivity {
 
     public final static int MSG_LEN_MAX = 100;
 

@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -23,11 +23,12 @@ import com.opiumfive.noncha.R;
 import com.opiumfive.noncha.model.Room;
 
 
-public class RoomsActivity extends AppCompatActivity {
+public class RoomsActivity extends BaseActivity {
 
     private FirebaseRecyclerAdapter<Room, RoomViewHolder> mFirebaseAdapter;
     private RecyclerView mRoomsRecyclerView;
-    private LinearLayoutManager mLinearLayoutManager;
+    //private LinearLayoutManager mLayoutManager;
+    private GridLayoutManager mLayoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +36,7 @@ public class RoomsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_rooms);
 
         mRoomsRecyclerView = (RecyclerView) findViewById(R.id.roomsRecyclerView);
-        mLinearLayoutManager = new LinearLayoutManager(this);
+        //mLayoutManager = new LinearLayoutManager(this);
 
         FirebaseAuth auth = AuthManager.getInstance().getAuth();
         if (auth.getCurrentUser() == null) {
@@ -95,7 +96,14 @@ public class RoomsActivity extends AppCompatActivity {
 
         };
 
-        mRoomsRecyclerView.setLayoutManager(mLinearLayoutManager);
+        mLayoutManager  = new GridLayoutManager(RoomsActivity.this, 2, GridLayoutManager.VERTICAL, false);
+        mLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+            @Override
+            public int getSpanSize(int position) {
+                return 1;
+            }
+        });
+        mRoomsRecyclerView.setLayoutManager(mLayoutManager);
         mRoomsRecyclerView.setAdapter(mFirebaseAdapter);
 
         final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);

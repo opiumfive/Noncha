@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputEditText;
-import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -23,7 +22,7 @@ import com.opiumfive.noncha.R;
 import com.opiumfive.noncha.model.Message;
 import com.opiumfive.noncha.model.Room;
 
-public class AddRoomActivity extends AppCompatActivity {
+public class AddRoomActivity extends BaseActivity {
 
     private CheckBox mPrivateCheckBox;
     private Button mCreateRoomButton;
