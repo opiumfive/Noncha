@@ -3,10 +3,32 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/roomNameTextView"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="@string/rooms"
+        android:padding="16dp"
+        android:layout_alignParentEnd="true"
+        android:textColor="@color/colorPrimary"
+        android:textAlignment="textEnd"
+        android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+    <ImageView
+        android:id="@+id/roomPublicImageView"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_gravity="end|center_vertical"
+        android:layout_marginEnd="16dp"
+        android:layout_below="@id/roomNameTextView"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/ic_lock_outline_black_24dp"/>
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/messageRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:overScrollMode="never"
         android:layout_above="@+id/linearLayout" />
 
     <LinearLayout

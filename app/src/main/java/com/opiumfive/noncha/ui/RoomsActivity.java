@@ -48,7 +48,19 @@ public class RoomsActivity extends AppCompatActivity {
                 database.getReference().child("rooms")) {
 
             @Override
-            protected void populateViewHolder(RoomViewHolder viewHolder, Room room, int position) {
+            protected void populateViewHolder(RoomViewHolder viewHolder, final Room room, int position) {
+                viewHolder.mView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (room.mPublic) {
+                            Intent intent = new Intent(RoomsActivity.this, ChatActivity.class);
+                            intent.putExtra("room_id", room.mId);
+                            intent.putExtra("room_name", room.mName);
+                            intent.putExtra("room_private", !room.mPublic);
+                            startActivity(intent);
+                        }
+                    }
+                });
                 if (room.mName != null) {
                     viewHolder.nameTextView.setText(room.mName);
                 } else {
@@ -62,11 +74,29 @@ public class RoomsActivity extends AppCompatActivity {
         mRoomsRecyclerView.setLayoutManager(mLinearLayoutManager);
         mRoomsRecyclerView.setAdapter(mFirebaseAdapter);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(RoomsActivity.this, AddRoomActivity.class));
+            }
+        });
+
+        mRoomsRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                if (newState == RecyclerView.SCROLL_STATE_IDLE) {
+                    fab.show();
+                }
+
+                super.onScrollStateChanged(recyclerView, newState);
+            }
+
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                if (dy > 0 ||dy<0 && fab.isShown()) {
+                    fab.hide();
+                }
             }
         });
     }
@@ -76,9 +106,11 @@ public class RoomsActivity extends AppCompatActivity {
 
         TextView nameTextView;
         ImageView publicImageView;
+        View mView;
 
         public RoomViewHolder(View v) {
             super(v);
+            mView = v;
             nameTextView = (TextView) itemView.findViewById(R.id.roomNameTextView);
             publicImageView = (ImageView) itemView.findViewById(R.id.roomPublicImageView);
         }

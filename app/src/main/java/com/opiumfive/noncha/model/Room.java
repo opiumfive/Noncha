@@ -1,6 +1,7 @@
 package com.opiumfive.noncha.model;
 
 
+import java.util.UUID;
 
 public class Room {
 
@@ -17,6 +18,7 @@ public class Room {
             mCode = code;
         }
         mPublic = (mCode == null);
+        mId = UUID.randomUUID().toString();
     }
 
     public Room() {

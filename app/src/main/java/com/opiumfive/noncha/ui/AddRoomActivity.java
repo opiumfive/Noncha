@@ -1,6 +1,7 @@
 package com.opiumfive.noncha.ui;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -19,6 +20,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.FirebaseDatabase;
 import com.opiumfive.noncha.DatabaseManager;
 import com.opiumfive.noncha.R;
+import com.opiumfive.noncha.model.Message;
 import com.opiumfive.noncha.model.Room;
 
 public class AddRoomActivity extends AppCompatActivity {
@@ -86,13 +88,18 @@ public class AddRoomActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String name = mRoomNameEditText.getText().toString();
                 String code = mCodeEditText.getText().toString();
-                Room room = new Room(name, code);
-                //database.getReference().push().setValue()
+                final Room room = new Room(name, code);
+                database.getReference().child("room-" + room.mId).push().setValue(new Message("Hello"));
                 database.getReference().child("rooms").push().setValue(room).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
                             finish();
+                            Intent intent = new Intent(AddRoomActivity.this, ChatActivity.class);
+                            intent.putExtra("room_id", room.mId);
+                            intent.putExtra("room_name", room.mName);
+                            intent.putExtra("room_private", !room.mPublic);
+                            startActivity(intent);
                         } else {
                             Toast.makeText(AddRoomActivity.this, getString(R.string.some_error), Toast.LENGTH_SHORT).show();
                         }
