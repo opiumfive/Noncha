@@ -18,6 +18,7 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 import com.opiumfive.noncha.AuthManager;
+import com.opiumfive.noncha.CryptUtils;
 import com.opiumfive.noncha.DatabaseManager;
 import com.opiumfive.noncha.R;
 import com.opiumfive.noncha.model.Room;
@@ -60,8 +61,7 @@ public class RoomsActivity extends BaseActivity {
                             goToChat(room);
                         } else {
                             AlertDialog.Builder adb = new AlertDialog.Builder(RoomsActivity.this);
-                            LinearLayout dialog_view = (LinearLayout) getLayoutInflater()
-                                    .inflate(R.layout.dialog_code, null);
+                            LinearLayout dialog_view = (LinearLayout) getLayoutInflater().inflate(R.layout.dialog_code, null);
                             adb.setView(dialog_view);
                             final TextInputEditText codeEditText = (TextInputEditText) dialog_view.findViewById(R.id.code_edit_text);
 
@@ -75,9 +75,12 @@ public class RoomsActivity extends BaseActivity {
                                     new DialogInterface.OnClickListener() {
                                         public void onClick(DialogInterface dialog, int id) {
                                             String code = codeEditText.getText().toString();
-                                            if (code.equals(room.mCode)) {
-                                                goToChat(room);
-                                                dialog.cancel();
+                                            if (!code.isEmpty()) {
+                                                String one = CryptUtils.StringToMD5(code);
+                                                if (one.equals(room.mCode)) {
+                                                    goToChat(room);
+                                                    dialog.cancel();
+                                                }
                                             }
                                         }
                                     });

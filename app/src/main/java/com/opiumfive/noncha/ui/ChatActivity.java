@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.FirebaseDatabase;
+import com.opiumfive.noncha.CryptUtils;
 import com.opiumfive.noncha.DatabaseManager;
 import com.opiumfive.noncha.R;
 import com.opiumfive.noncha.model.Message;
@@ -74,7 +75,8 @@ public class ChatActivity extends BaseActivity {
 
             @Override
             protected void populateViewHolder(MessageViewHolder viewHolder, Message message, int position) {
-                viewHolder.messageTextView.setText(message.getText());
+                String decString = CryptUtils.decryptString(message.getText());
+                viewHolder.messageTextView.setText(decString);
             }
         };
 
@@ -96,7 +98,8 @@ public class ChatActivity extends BaseActivity {
             public void onClick(View v) {
                 String text = mTextEditText.getText().toString();
                 if (!text.isEmpty()) {
-                    database.getReference().child(roomConnector).push().setValue(new Message(text));
+                    String encString = CryptUtils.encryptString(text);
+                    database.getReference().child(roomConnector).push().setValue(new Message(encString));
                     mTextEditText.setText("");
                 }
             }

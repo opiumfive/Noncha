@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.FirebaseDatabase;
+import com.opiumfive.noncha.CryptUtils;
 import com.opiumfive.noncha.DatabaseManager;
 import com.opiumfive.noncha.R;
 import com.opiumfive.noncha.model.Message;
@@ -87,8 +88,8 @@ public class AddRoomActivity extends BaseActivity {
             public void onClick(View v) {
                 String name = mRoomNameEditText.getText().toString();
                 String code = mCodeEditText.getText().toString();
-                final Room room = new Room(name, code);
-                database.getReference().child("room-" + room.mId).push().setValue(new Message("Hello"));
+                final Room room = new Room(name, code.isEmpty() ? code : CryptUtils.StringToMD5(code));
+                database.getReference().child("room-" + room.mId).push().setValue(new Message(CryptUtils.encryptString("Hello")));
                 database.getReference().child("rooms").push().setValue(room).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
