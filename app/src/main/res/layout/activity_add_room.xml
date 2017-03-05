@@ -4,7 +4,16 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@drawable/gradient_shape">
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:id="@+id/empty_view"
+        android:visibility="gone"
+        android:layout_gravity="center" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,6 +25,7 @@
             android:id="@+id/roomNameTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:text="@string/create_new_room"
             android:textAppearance="?android:attr/textAppearanceLarge"/>
 
@@ -46,12 +56,31 @@
                     android:id="@+id/name_edit_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:maxLength="20"
                     android:hint="@string/room_name"
                     android:inputType="textEmailAddress"/>
 
             </android.support.design.widget.TextInputLayout>
 
         </RelativeLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_toStartOf="@id/private_check_box"
+            android:layout_height="wrap_content"
+            app:passwordToggleContentDescription="description"
+            app:passwordToggleEnabled="false" >
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/desc_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/room_description"
+                android:maxLength="200"
+                android:inputType="textEmailAddress"/>
+
+        </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/code_view"
@@ -65,6 +94,7 @@
                 android:id="@+id/code_edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:maxLength="5"
                 android:hint="@string/secret_code"
                 android:inputType="numberPassword"/>
 

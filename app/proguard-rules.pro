@@ -23,3 +23,15 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+-keep class com.firebase.** { *; }
+-keep class org.apache.** { *; }
+-keepnames class com.fasterxml.jackson.** { *; }
+-keepnames class javax.servlet.** { *; }
+-keepnames class org.ietf.jgss.** { *; }
+-dontwarn org.w3c.dom.**
+-dontwarn org.joda.time.**
+-dontwarn org.shaded.apache.**
+-dontwarn org.ietf.jgss.**
+
+-keep class com.opiumfive.noncha.model.** { *; }

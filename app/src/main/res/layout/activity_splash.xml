@@ -1,6 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_shape">
 
-</LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerInParent="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="fully"
+            android:layout_gravity="center_horizontal"
+            android:textColor="#000"
+            android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="a"
+                android:textColor="#000"
+                android:textAppearance="?android:attr/textAppearanceLarge"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="non"
+                android:textColor="@color/colorPrimary"
+                android:textAppearance="?android:attr/textAppearanceLarge"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="imous"
+                android:textColor="#000"
+                android:textAppearance="?android:attr/textAppearanceLarge"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="cha"
+                android:textColor="@color/colorPrimary"
+                android:textAppearance="?android:attr/textAppearanceLarge"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="t"
+                android:textColor="#000"
+                android:textAppearance="?android:attr/textAppearanceLarge"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+</RelativeLayout>

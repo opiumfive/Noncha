@@ -29,5 +29,4 @@
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait"/>
     </application>
-
 </manifest>

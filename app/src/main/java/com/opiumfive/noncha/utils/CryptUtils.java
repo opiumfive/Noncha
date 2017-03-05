@@ -1,10 +1,9 @@
-package com.opiumfive.noncha;
+package com.opiumfive.noncha.utils;
 
 import android.util.Base64;
-
+import com.opiumfive.noncha.HidingUtil;
 import java.math.BigInteger;
 import java.security.MessageDigest;
-
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
@@ -14,6 +13,7 @@ public class CryptUtils {
     private static final String TRANSFORMATION = "AES/CBC/PKCS5Padding";
     private static final String CHARSETNAME = "UTF8";
     private static final String ALGORITHM = "AES";
+    private static final int NUM_OF_BYTES = 16;
 
 
     public static String encryptString(String string) {
@@ -47,22 +47,22 @@ public class CryptUtils {
 
     private static byte[] decrypt(String k, byte[] plainBytes) throws Exception {
         byte[] keyBytes = k.getBytes(CHARSETNAME);
-        byte[] keyBytes16 = new byte[16];
-        System.arraycopy(keyBytes, 0, keyBytes16, 0, Math.min(keyBytes.length, 16));
+        byte[] keyBytes16 = new byte[NUM_OF_BYTES];
+        System.arraycopy(keyBytes, 0, keyBytes16, 0, Math.min(keyBytes.length, NUM_OF_BYTES));
         SecretKeySpec skeySpec = new SecretKeySpec(keyBytes16, ALGORITHM);
         Cipher cipher = Cipher.getInstance(TRANSFORMATION);
-        byte[] iv = new byte[16];
+        byte[] iv = new byte[NUM_OF_BYTES];
         cipher.init(Cipher.DECRYPT_MODE, skeySpec, new IvParameterSpec(iv));
         return cipher.doFinal(plainBytes);
     }
 
     private static byte[] encrypt(String k, byte[] plainBytes) throws Exception {
         byte[] keyBytes = k.getBytes(CHARSETNAME);
-        byte[] keyBytes16 = new byte[16];
-        System.arraycopy(keyBytes, 0, keyBytes16, 0, Math.min(keyBytes.length, 16));
+        byte[] keyBytes16 = new byte[NUM_OF_BYTES];
+        System.arraycopy(keyBytes, 0, keyBytes16, 0, Math.min(keyBytes.length, NUM_OF_BYTES));
         SecretKeySpec skeySpec = new SecretKeySpec(keyBytes16, ALGORITHM);
         Cipher cipher = Cipher.getInstance(TRANSFORMATION);
-        byte[] iv = new byte[16];
+        byte[] iv = new byte[NUM_OF_BYTES];
         cipher.init(Cipher.ENCRYPT_MODE, skeySpec, new IvParameterSpec(iv));
         return cipher.doFinal(plainBytes);
     }
@@ -72,7 +72,7 @@ public class CryptUtils {
         try { md = MessageDigest.getInstance("MD5"); } catch (Exception e) {}
         md.update(in.getBytes(),0,in.length());
         String s = new BigInteger(1, md.digest()).toString(16);
-        if (s.length() == 31) s = "0"+s;
+        if (s.length() == 31) s = "0" + s;
         return s;
     }
 }

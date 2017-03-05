@@ -1,4 +1,4 @@
-package com.opiumfive.noncha;
+package com.opiumfive.noncha.managers;
 
 
 import com.google.firebase.auth.FirebaseAuth;
