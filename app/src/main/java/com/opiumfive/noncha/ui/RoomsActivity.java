@@ -4,13 +4,11 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -18,6 +16,7 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 import com.opiumfive.noncha.managers.AuthManager;
+import com.opiumfive.noncha.ui.viewholders.RoomViewHolder;
 import com.opiumfive.noncha.utils.CryptUtils;
 import com.opiumfive.noncha.managers.DatabaseManager;
 import com.opiumfive.noncha.R;
@@ -151,19 +150,5 @@ public class RoomsActivity extends BaseActivity {
         intent.putExtra("room_name", room.mName);
         intent.putExtra("room_private", !room.mPublic);
         startActivity(intent);
-    }
-
-    private static class RoomViewHolder extends RecyclerView.ViewHolder {
-
-        TextView nameTextView;
-        ImageView publicImageView;
-        View mView;
-
-        public RoomViewHolder(View v) {
-            super(v);
-            mView = v;
-            nameTextView = (TextView) itemView.findViewById(R.id.roomNameTextView);
-            publicImageView = (ImageView) itemView.findViewById(R.id.roomPublicImageView);
-        }
     }
 }

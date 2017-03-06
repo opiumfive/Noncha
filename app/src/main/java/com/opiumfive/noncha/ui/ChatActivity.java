@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.FirebaseDatabase;
+import com.opiumfive.noncha.ui.viewholders.MessageViewHolder;
 import com.opiumfive.noncha.utils.CryptUtils;
 import com.opiumfive.noncha.managers.DatabaseManager;
 import com.opiumfive.noncha.R;
@@ -107,15 +108,5 @@ public class ChatActivity extends BaseActivity {
         });
 
         mMessageRecyclerView.setAdapter(mFirebaseAdapter);
-    }
-
-    private static class MessageViewHolder extends RecyclerView.ViewHolder {
-
-        TextView messageTextView;
-
-        public MessageViewHolder(View v) {
-            super(v);
-            messageTextView = (TextView) itemView.findViewById(R.id.messageTextView);
-        }
     }
 }

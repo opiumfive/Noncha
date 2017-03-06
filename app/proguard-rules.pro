@@ -35,3 +35,4 @@
 -dontwarn org.ietf.jgss.**
 
 -keep class com.opiumfive.noncha.model.** { *; }
+-keep class com.opiumfive.noncha.ui.viewholders.** { *; }
