@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Noncha</string>
+    <string name="cancel">Stornieren</string>
+    <string name="create_new_room">Neues Zimmer erstellen:</string>
+    <string name="create_room">Platz schaffen</string>
+    <string name="ok">Ok</string>
+    <string name="private_room">Privatgelände</string>
+    <string name="room_description">Zimmerbeschreibung</string>
+    <string name="room_is_private">Das Zimmer ist privat</string>
+    <string name="room_name">Raumname</string>
+    <string name="rooms">Zimmer:</string>
+    <string name="secret_code">Geheim Code</string>
+    <string name="send">Senden</string>
+    <string name="some_error">Ein Fehler ist aufgetreten</string>
+</resources>

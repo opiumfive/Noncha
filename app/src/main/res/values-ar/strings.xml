@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Noncha</string>
+    <string name="cancel">إلغاء</string>
+    <string name="ok">حسنا</string>
+    <string name="create_new_room">إنشاء غرفة جديدة:</string>
+    <string name="create_room">إنشاء غرفة</string>
+    <string name="private_room">نشر</string>
+    <string name="room_description">وصف الغرفة</string>
+    <string name="room_is_private">غرفة خاصة</string>
+    <string name="room_name">اسم الغرفة</string>
+    <string name="rooms">غرف:</string>
+    <string name="secret_code">الرمز السري</string>
+    <string name="send">إرسال</string>
+    <string name="some_error">حدث بعض الخطأ</string>
+</resources>
