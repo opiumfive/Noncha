@@ -47,6 +47,7 @@ public class AddRoomActivity extends BaseActivity {
         mCodeEditText = (TextInputEditText) findViewById(R.id.code_edit_text);
         mCodeView = findViewById(R.id.code_view);
         mProgressView = findViewById(R.id.empty_view);
+        playUIanimation(findViewById(R.id.animate_one), mCreateRoomButton);
 
         mPrivateCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override

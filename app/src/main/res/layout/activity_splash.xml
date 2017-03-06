@@ -4,7 +4,16 @@
     android:layout_height="match_parent"
     android:background="@drawable/gradient_shape">
 
+    <ImageView
+        android:id="@+id/splash_image"
+        android:layout_width="220dp"
+        android:layout_height="220dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/noncha"/>
+
     <LinearLayout
+        android:id="@+id/splash_text"
+        android:paddingTop="68dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -15,7 +24,7 @@
             android:layout_height="wrap_content"
             android:text="fully"
             android:layout_gravity="center_horizontal"
-            android:textColor="#000"
+            android:textColor="#92f8f4"
             android:textAppearance="?android:attr/textAppearanceLarge"/>
 
         <LinearLayout
@@ -28,19 +37,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="a"
-                android:textColor="#000"
+                android:textColor="#92f8f4"
                 android:textAppearance="?android:attr/textAppearanceLarge"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="non"
-                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                android:textColor="#8fa9f2"
                 android:textAppearance="?android:attr/textAppearanceLarge"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="imous"
-                android:textColor="#000"
+                android:textColor="#92f8f4"
                 android:textAppearance="?android:attr/textAppearanceLarge"/>
         </LinearLayout>
 
@@ -54,13 +64,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="cha"
-                android:textColor="@color/colorPrimary"
+                android:textColor="#8fa9f2"
+                android:textStyle="bold"
                 android:textAppearance="?android:attr/textAppearanceLarge"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="t"
-                android:textColor="#000"
+                android:textColor="#92f8f4"
                 android:textAppearance="?android:attr/textAppearanceLarge"/>
         </LinearLayout>
     </LinearLayout>

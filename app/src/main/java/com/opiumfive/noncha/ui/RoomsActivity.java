@@ -93,6 +93,7 @@ public class RoomsActivity extends BaseActivity {
         mRoomsRecyclerView.setAdapter(mFirebaseAdapter);
 
         final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        playUIanimation(mProgressView, fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -54,6 +54,7 @@ public class ChatActivity extends BaseActivity {
         mPrivateRoomImageView = (ImageView) findViewById(R.id.roomPublicImageView);
         mRoomNameTextView = (TextView) findViewById(R.id.roomNameTextView);
         mMessageRecyclerView = (RecyclerView) findViewById(R.id.messageRecyclerView);
+        playUIanimation(mMessageRecyclerView, findViewById(R.id.animate_layout));
         mLinearLayoutManager = new LinearLayoutManager(this);
         mLinearLayoutManager.setStackFromEnd(true);
         mMessageRecyclerView.setLayoutManager(mLinearLayoutManager);
