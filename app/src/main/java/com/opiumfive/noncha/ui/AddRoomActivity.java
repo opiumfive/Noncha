@@ -6,10 +6,11 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputEditText;
+import android.support.v7.widget.AppCompatCheckBox;
+import android.support.v7.widget.AppCompatEditText;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.Toast;
 
@@ -27,11 +28,11 @@ public class AddRoomActivity extends BaseActivity {
 
     private static final String DEFAULT_START_MESSAGE = "Hello";
 
-    private CheckBox mPrivateCheckBox;
+    private AppCompatCheckBox mPrivateCheckBox;
     private Button mCreateRoomButton;
-    private TextInputEditText mRoomNameEditText;
-    private TextInputEditText mRoomDescEditText;
-    private TextInputEditText mCodeEditText;
+    private AppCompatEditText mRoomNameEditText;
+    private AppCompatEditText mRoomDescEditText;
+    private AppCompatEditText mCodeEditText;
     private View mCodeView;
     private View mProgressView;
 
@@ -40,11 +41,11 @@ public class AddRoomActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_room);
 
-        mPrivateCheckBox = (CheckBox) findViewById(R.id.private_check_box);
+        mPrivateCheckBox = (AppCompatCheckBox) findViewById(R.id.private_check_box);
         mCreateRoomButton = (Button) findViewById(R.id.add_room_button);
-        mRoomNameEditText = (TextInputEditText) findViewById(R.id.name_edit_text);
-        mRoomDescEditText = (TextInputEditText) findViewById(R.id.desc_edit_text);
-        mCodeEditText = (TextInputEditText) findViewById(R.id.code_edit_text);
+        mRoomNameEditText = (AppCompatEditText) findViewById(R.id.name_edit_text);
+        mRoomDescEditText = (AppCompatEditText) findViewById(R.id.desc_edit_text);
+        mCodeEditText = (AppCompatEditText) findViewById(R.id.code_edit_text);
         mCodeView = findViewById(R.id.code_view);
         mProgressView = findViewById(R.id.empty_view);
         playUIanimation(findViewById(R.id.animate_one), mCreateRoomButton);

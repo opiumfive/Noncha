@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_shape">
 
@@ -23,7 +25,7 @@
         android:layout_marginEnd="16dp"
         android:layout_below="@id/roomNameTextView"
         android:layout_alignParentEnd="true"
-        android:src="@drawable/ic_lock_outline_black_24dp"/>
+        android:src="@drawable/ic_lock_outline_white_24dp"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/messageRecyclerView"
@@ -40,11 +42,17 @@
         android:layout_alignParentStart="true"
         android:id="@+id/animate_layout">
 
-        <EditText
+        <android.support.v7.widget.AppCompatEditText
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:id="@+id/messageEditText"
+            android:textColorLink="@color/colorPrimary"
+            android:textColor="@color/colorPrimary"
+            android:shadowColor="@color/colorPrimary"
+            android:textColorHint="@color/colorPrimary"
+            android:textColorHighlight="@color/colorPrimary"
             android:layout_gravity="center_vertical"
+            app:backgroundTint="@color/colorPrimary"
             android:layout_weight="1"/>
 
         <Button

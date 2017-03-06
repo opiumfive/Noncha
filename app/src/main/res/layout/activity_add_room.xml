@@ -28,20 +28,23 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="@string/create_new_room"
+            android:textColor="@color/colorPrimary"
             android:textAppearance="?android:attr/textAppearanceLarge"/>
 
         <RelativeLayout
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="30dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <CheckBox
+            <android.support.v7.widget.AppCompatCheckBox
                 android:id="@+id/private_check_box"
                 android:layout_alignParentEnd="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
+                app:buttonTint="@color/colorAccent"
+                android:textColor="@color/colorPrimary"
                 android:text="@string/private_room"
                 android:checked="false"/>
 
@@ -53,13 +56,19 @@
                 app:passwordToggleContentDescription="description"
                 app:passwordToggleEnabled="false" >
 
-                <android.support.design.widget.TextInputEditText
+                <android.support.v7.widget.AppCompatEditText
                     android:id="@+id/name_edit_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:maxLength="20"
+                    android:textColorLink="@color/colorPrimary"
+                    android:textColor="@color/colorPrimary"
+                    android:shadowColor="@color/colorPrimary"
+                    android:textColorHint="@color/colorPrimary"
+                    android:textColorHighlight="@color/colorPrimary"
+                    app:backgroundTint="@color/colorPrimary"
                     android:hint="@string/room_name"
-                    android:inputType="textEmailAddress"/>
+                    android:inputType="textCapWords"/>
 
             </android.support.design.widget.TextInputLayout>
 
@@ -73,13 +82,19 @@
             app:passwordToggleContentDescription="description"
             app:passwordToggleEnabled="false" >
 
-            <android.support.design.widget.TextInputEditText
+            <android.support.v7.widget.AppCompatEditText
                 android:id="@+id/desc_edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/room_description"
+                android:textColorLink="@color/colorPrimary"
+                android:textColor="@color/colorPrimary"
+                android:shadowColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimary"
+                android:textColorHighlight="@color/colorPrimary"
+                app:backgroundTint="@color/colorPrimary"
                 android:maxLength="200"
-                android:inputType="textEmailAddress"/>
+                android:inputType="textCapSentences"/>
 
         </android.support.design.widget.TextInputLayout>
 
@@ -91,11 +106,17 @@
             app:passwordToggleContentDescription="description"
             app:passwordToggleEnabled="true" >
 
-            <android.support.design.widget.TextInputEditText
+            <android.support.v7.widget.AppCompatEditText
                 android:id="@+id/code_edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:maxLength="5"
+                android:textColorLink="@color/colorPrimary"
+                android:textColor="@color/colorPrimary"
+                android:shadowColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimary"
+                android:textColorHighlight="@color/colorPrimary"
+                app:backgroundTint="@color/colorPrimary"
                 android:hint="@string/secret_code"
                 android:inputType="numberPassword"/>
 

@@ -4,11 +4,11 @@ package com.opiumfive.noncha.ui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.InputFilter;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -27,7 +27,7 @@ public class ChatActivity extends BaseActivity {
     private RecyclerView mMessageRecyclerView;
     private LinearLayoutManager mLinearLayoutManager;
     private View mSendView;
-    private EditText mTextEditText;
+    private AppCompatEditText mTextEditText;
     private TextView mRoomNameTextView;
     private ImageView mPrivateRoomImageView;
 
@@ -50,7 +50,7 @@ public class ChatActivity extends BaseActivity {
         }
 
         mSendView = findViewById(R.id.sendButton);
-        mTextEditText = (EditText) findViewById(R.id.messageEditText);
+        mTextEditText = (AppCompatEditText) findViewById(R.id.messageEditText);
         mPrivateRoomImageView = (ImageView) findViewById(R.id.roomPublicImageView);
         mRoomNameTextView = (TextView) findViewById(R.id.roomNameTextView);
         mMessageRecyclerView = (RecyclerView) findViewById(R.id.messageRecyclerView);

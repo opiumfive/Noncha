@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -68,7 +69,7 @@ public class RoomsActivity extends BaseActivity {
                 } else {
                     viewHolder.nameTextView.setVisibility(TextView.GONE);
                 }
-                viewHolder.publicImageView.setVisibility(room.mPublic ? View.GONE : View.VISIBLE);
+                viewHolder.publicImageView.setVisibility(room.mPublic ? View.INVISIBLE : View.VISIBLE);
             }
 
         };
@@ -116,10 +117,10 @@ public class RoomsActivity extends BaseActivity {
     }
 
     private void createCodeDialog(final Room room) {
-        AlertDialog.Builder adb = new AlertDialog.Builder(RoomsActivity.this);
+        AlertDialog.Builder adb = new AlertDialog.Builder(RoomsActivity.this, R.style.DialogStyle);
         LinearLayout dialog_view = (LinearLayout) getLayoutInflater().inflate(R.layout.dialog_code, null);
         adb.setView(dialog_view);
-        final TextInputEditText codeEditText = (TextInputEditText) dialog_view.findViewById(R.id.code_edit_text);
+        final AppCompatEditText codeEditText = (AppCompatEditText) dialog_view.findViewById(R.id.code_edit_text);
 
         adb.setNegativeButton(R.string.cancel,
                 new DialogInterface.OnClickListener() {

@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:text="fully"
             android:layout_gravity="center_horizontal"
-            android:textColor="#92f8f4"
+            android:textColor="@color/colorPrimary"
             android:textAppearance="?android:attr/textAppearanceLarge"/>
 
         <LinearLayout
@@ -37,20 +37,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="a"
-                android:textColor="#92f8f4"
+                android:textColor="@color/colorPrimary"
                 android:textAppearance="?android:attr/textAppearanceLarge"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="non"
                 android:textStyle="bold"
-                android:textColor="#8fa9f2"
+                android:textColor="@color/colorAccent"
                 android:textAppearance="?android:attr/textAppearanceLarge"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="imous"
-                android:textColor="#92f8f4"
+                android:textColor="@color/colorPrimary"
                 android:textAppearance="?android:attr/textAppearanceLarge"/>
         </LinearLayout>
 
@@ -64,14 +64,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="cha"
-                android:textColor="#8fa9f2"
+                android:textColor="@color/colorAccent"
                 android:textStyle="bold"
                 android:textAppearance="?android:attr/textAppearanceLarge"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="t"
-                android:textColor="#92f8f4"
+                android:textColor="@color/colorPrimary"
                 android:textAppearance="?android:attr/textAppearanceLarge"/>
         </LinearLayout>
     </LinearLayout>
